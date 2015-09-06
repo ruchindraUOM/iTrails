@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98011FF11B8B4D0B0097ED68 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98011FF01B8B4D0B0097ED68 /* MapKit.framework */; };
+		98011FF31B8B513A0097ED68 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 98011FF21B8B513A0097ED68 /* home.png */; };
 		982A12F51B63E86500A58C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12F41B63E86500A58C54 /* main.m */; };
-		982A12F81B63E86500A58C54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12F71B63E86500A58C54 /* AppDelegate.m */; };
-		982A12FB1B63E86500A58C54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FA1B63E86500A58C54 /* ViewController.m */; };
 		982A12FE1B63E86500A58C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 982A12FC1B63E86500A58C54 /* Main.storyboard */; };
 		982A13001B63E86500A58C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 982A12FF1B63E86500A58C54 /* Images.xcassets */; };
 		982A13031B63E86500A58C54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 982A13011B63E86500A58C54 /* LaunchScreen.xib */; };
 		982A130F1B63E86500A58C54 /* iTrailsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A130E1B63E86500A58C54 /* iTrailsTests.m */; };
+		98C60DDD1B98C51900F59C73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; };
+		98C60DE11B9AC6B400F59C73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; };
+		98C60DE21B9AC6B400F59C73 /* CoreLocation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		98C60DE91B9ACEB400F59C73 /* homeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DE81B9ACEB400F59C73 /* homeMapViewController.m */; };
+		98C60DF11B9B183400F59C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DF01B9B183400F59C73 /* AppDelegate.m */; };
+		98C60DF41B9B5C5300F59C73 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DF31B9B5C5300F59C73 /* HistoryViewController.m */; };
+		98C60DF71B9B68F800F59C73 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DF61B9B68F800F59C73 /* HomeModel.m */; };
+		98C60DFA1B9B693700F59C73 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DF91B9B693700F59C73 /* Location.m */; };
+		98C60DFD1B9C2D7800F59C73 /* SummeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DFC1B9C2D7800F59C73 /* SummeryViewController.m */; };
+		98C60E001B9C6C5500F59C73 /* dataInsertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DFF1B9C6C5500F59C73 /* dataInsertModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,20 +36,47 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		98C60DE31B9AC6B500F59C73 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				98C60DE21B9AC6B400F59C73 /* CoreLocation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		98011FF01B8B4D0B0097ED68 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		98011FF21B8B513A0097ED68 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../../../Downloads/home.png; sourceTree = SOURCE_ROOT; };
 		982A12EF1B63E86400A58C54 /* iTrails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTrails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		982A12F31B63E86500A58C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		982A12F41B63E86500A58C54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		982A12F61B63E86500A58C54 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		982A12F71B63E86500A58C54 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		982A12F91B63E86500A58C54 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		982A12FA1B63E86500A58C54 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		982A12FD1B63E86500A58C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		982A12FF1B63E86500A58C54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		982A13021B63E86500A58C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		982A13081B63E86500A58C54 /* iTrailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTrailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		982A130D1B63E86500A58C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		982A130E1B63E86500A58C54 /* iTrailsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTrailsTests.m; sourceTree = "<group>"; };
+		98C60DDC1B98C51900F59C73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		98C60DE71B9ACEB400F59C73 /* homeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeMapViewController.h; sourceTree = "<group>"; };
+		98C60DE81B9ACEB400F59C73 /* homeMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeMapViewController.m; sourceTree = "<group>"; };
+		98C60DEF1B9B183400F59C73 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		98C60DF01B9B183400F59C73 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		98C60DF21B9B5C5300F59C73 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		98C60DF31B9B5C5300F59C73 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		98C60DF51B9B68F800F59C73 /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
+		98C60DF61B9B68F800F59C73 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
+		98C60DF81B9B693700F59C73 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		98C60DF91B9B693700F59C73 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		98C60DFB1B9C2D7800F59C73 /* SummeryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummeryViewController.h; sourceTree = "<group>"; };
+		98C60DFC1B9C2D7800F59C73 /* SummeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummeryViewController.m; sourceTree = "<group>"; };
+		98C60DFE1B9C6C5500F59C73 /* dataInsertModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataInsertModel.h; sourceTree = "<group>"; };
+		98C60DFF1B9C6C5500F59C73 /* dataInsertModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataInsertModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C60DE11B9AC6B400F59C73 /* CoreLocation.framework in Frameworks */,
+				98C60DDD1B98C51900F59C73 /* CoreLocation.framework in Frameworks */,
+				98011FF11B8B4D0B0097ED68 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +100,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		980007C31B6D49F600D63E7D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				98011FF21B8B513A0097ED68 /* home.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		982A12E61B63E86400A58C54 = {
 			isa = PBXGroup;
 			children = (
+				98C60DDC1B98C51900F59C73 /* CoreLocation.framework */,
+				98011FF01B8B4D0B0097ED68 /* MapKit.framework */,
+				980007C31B6D49F600D63E7D /* Images */,
 				982A12F11B63E86400A58C54 /* iTrails */,
 				982A130B1B63E86500A58C54 /* iTrailsTests */,
 				982A12F01B63E86400A58C54 /* Products */,
@@ -81,13 +132,15 @@
 		982A12F11B63E86400A58C54 /* iTrails */ = {
 			isa = PBXGroup;
 			children = (
-				982A12F61B63E86500A58C54 /* AppDelegate.h */,
-				982A12F71B63E86500A58C54 /* AppDelegate.m */,
-				982A12F91B63E86500A58C54 /* ViewController.h */,
-				982A12FA1B63E86500A58C54 /* ViewController.m */,
+				98C60DF81B9B693700F59C73 /* Location.h */,
+				98C60DF91B9B693700F59C73 /* Location.m */,
+				98C60DEF1B9B183400F59C73 /* AppDelegate.h */,
+				98C60DF01B9B183400F59C73 /* AppDelegate.m */,
 				982A12FC1B63E86500A58C54 /* Main.storyboard */,
 				982A12FF1B63E86500A58C54 /* Images.xcassets */,
 				982A13011B63E86500A58C54 /* LaunchScreen.xib */,
+				98C60DEB1B9B176400F59C73 /* Model Controllers */,
+				98C60DEA1B9B171700F59C73 /* ViewControllers */,
 				982A12F21B63E86400A58C54 /* Supporting Files */,
 			);
 			path = iTrails;
@@ -119,6 +172,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		98C60DEA1B9B171700F59C73 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				98C60DE81B9ACEB400F59C73 /* homeMapViewController.m */,
+				98C60DE71B9ACEB400F59C73 /* homeMapViewController.h */,
+				98C60DF21B9B5C5300F59C73 /* HistoryViewController.h */,
+				98C60DF31B9B5C5300F59C73 /* HistoryViewController.m */,
+				98C60DFB1B9C2D7800F59C73 /* SummeryViewController.h */,
+				98C60DFC1B9C2D7800F59C73 /* SummeryViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		98C60DEB1B9B176400F59C73 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				98C60DF51B9B68F800F59C73 /* HomeModel.h */,
+				98C60DF61B9B68F800F59C73 /* HomeModel.m */,
+				98C60DFE1B9C6C5500F59C73 /* dataInsertModel.h */,
+				98C60DFF1B9C6C5500F59C73 /* dataInsertModel.m */,
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +206,7 @@
 				982A12EB1B63E86400A58C54 /* Sources */,
 				982A12EC1B63E86400A58C54 /* Frameworks */,
 				982A12ED1B63E86400A58C54 /* Resources */,
+				98C60DE31B9AC6B500F59C73 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +246,14 @@
 				TargetAttributes = {
 					982A12EE1B63E86400A58C54 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					982A13071B63E86500A58C54 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -199,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98011FF31B8B513A0097ED68 /* home.png in Resources */,
 				982A12FE1B63E86500A58C54 /* Main.storyboard in Resources */,
 				982A13031B63E86500A58C54 /* LaunchScreen.xib in Resources */,
 				982A13001B63E86500A58C54 /* Images.xcassets in Resources */,
@@ -219,9 +306,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				982A12FB1B63E86500A58C54 /* ViewController.m in Sources */,
-				982A12F81B63E86500A58C54 /* AppDelegate.m in Sources */,
+				98C60DF71B9B68F800F59C73 /* HomeModel.m in Sources */,
+				98C60DF11B9B183400F59C73 /* AppDelegate.m in Sources */,
+				98C60DFD1B9C2D7800F59C73 /* SummeryViewController.m in Sources */,
 				982A12F51B63E86500A58C54 /* main.m in Sources */,
+				98C60E001B9C6C5500F59C73 /* dataInsertModel.m in Sources */,
+				98C60DE91B9ACEB400F59C73 /* homeMapViewController.m in Sources */,
+				98C60DFA1B9B693700F59C73 /* Location.m in Sources */,
+				98C60DF41B9B5C5300F59C73 /* HistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,8 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iTrails/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -354,8 +448,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iTrails/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -412,6 +508,7 @@
 				982A13141B63E86500A58C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		982A13151B63E86500A58C54 /* Build configuration list for PBXNativeTarget "iTrailsTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +517,7 @@
 				982A13171B63E86500A58C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

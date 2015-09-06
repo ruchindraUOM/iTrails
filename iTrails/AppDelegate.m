@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  iTrails
+//  iTrailsPro
 //
-//  Created by Ruchindra Vithanage on 7/25/15.
+//  Created by Ruchindra Vithanage on 8/24/15.
 //  Copyright (c) 2015 Ruchindra Vithanage. All rights reserved.
 //
 

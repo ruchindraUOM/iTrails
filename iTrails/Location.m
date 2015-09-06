@@ -1,15 +1,13 @@
 //
-//  ViewController.h
-//  iTrails
+//  Location.m
+//  myFirstIApp
 //
 //  Created by Ruchindra Vithanage on 7/25/15.
 //  Copyright (c) 2015 Ruchindra Vithanage. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Location.h"
 
-@interface ViewController : UIViewController
-
+@implementation Location
 
 @end
-
