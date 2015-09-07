@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeModel.h"
+#import <MapKit/MapKit.h>
 
-@interface HistoryViewController : UIViewController
+
+@interface HistoryViewController : UIViewController <HomeModelProtocol>
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end

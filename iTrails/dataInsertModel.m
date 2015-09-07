@@ -11,10 +11,10 @@
 
 @implementation dataInsertModel
 
-- (void) insertData:(NSString *) Userid user:(NSString *) lat:(NSString *) lng:(NSString *) spd:(NSString *) alt
-{
+void insertData(Location *location){
 
-    NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@&timeStamp=%@", Userid, lat,lng,spd,alt,time];
+    NSLog(@"Inserting data");
+    NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",location.name,location.latitude,location.longitude,location.speed,location.altitude];
     //NSString *noteDataString = [NSString stringWithFormat:@"Name='res'&Mail='hfh'"];
     
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

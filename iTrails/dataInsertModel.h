@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Location.h"
 
 @interface dataInsertModel : NSData
--(void)insertData;
+-(void)insertData:(Location *)location;
 @end

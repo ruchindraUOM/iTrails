@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="yNZ-Pd-q1F">
             <objects>
-                <viewController id="gsc-jl-s4J" sceneMemberID="viewController">
+                <viewController id="gsc-jl-s4J" customClass="HistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cb1-YZ-8NW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,6 +21,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="e4p-2n-vS2"/>
+                    <connections>
+                        <outlet property="mapView" destination="NXS-u1-qW8" id="IvA-1I-1pF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfA-Hx-yoa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

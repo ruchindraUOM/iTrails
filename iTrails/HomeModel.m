@@ -57,27 +57,31 @@
     {
         NSDictionary *jsonElement = jsonArray[i];
         
-       
         // Create a new location object and set its props to JsonElement properties
         Location *newLocation = [[Location alloc] init];
-        newLocation.name = jsonElement[@"Name"];
-        NSLog(@"%@",newLocation.name);
-        newLocation.address = jsonElement[@"Address"];
-        NSLog(@"%@",newLocation.address);
-        newLocation.latitude = jsonElement[@"Latitude"];
-        NSLog(@"%@",newLocation.latitude);
-        newLocation.longitude = jsonElement[@"Longitude"];
-        NSLog(@"%@",newLocation.longitude);
+        newLocation.name = jsonElement[@"userID"];
+        newLocation.latitude=jsonElement[@"latitude"];
+        newLocation.longitude=jsonElement[@"longitude"];
+        newLocation.speed=jsonElement[@"speed"];
+        
+        NSLog(@"%@",jsonElement[@"userID"]);
+        NSLog(@"%@",jsonElement[@"latitude"]);
+        NSLog(@"%@",jsonElement[@"longitude"]);
+        NSLog(@"%@",jsonElement[@"speed"]);
+        NSLog(@"%@",jsonElement[@"altitude"]);
+        
+        if (self.delegate)
+        {
+            NSLog(@"Finished");
+            [self.delegate itemsDownloaded:_locations];
+        }
+        
         // Add this question to the locations array
         [_locations addObject:newLocation];
+        
+        
     }
     
-    // Ready to notify delegate that data is ready and pass back items
-    if (self.delegate)
-    {
-        NSLog(@"Finished");
-        [self.delegate itemsDownloaded:_locations];
-    }
 }
 
 @end

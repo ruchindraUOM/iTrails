@@ -10,4 +10,7 @@
 
 @implementation Location
 
+double lattitude1;
+double longitude1;
+
 @end

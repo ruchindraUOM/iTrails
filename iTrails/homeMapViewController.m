@@ -20,12 +20,16 @@ double lattitude;
 double longitude;
 double altitude;
 double speed;
+dataInsertModel *dataModelInsert;
+
 NSTimer *timer;
 MKPointAnnotation *pin;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     pin = [[MKPointAnnotation alloc] init];
+    dataModelInsert=[[dataInsertModel alloc] init];
+    
     // Do any additional setup after loading the view.
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -84,19 +88,33 @@ MKPointAnnotation *pin;
         pin.coordinate = poiCoodinates;
         [self.mapView addAnnotation:pin];
         
-        Location *LocationData = [[Location alloc] init];
-        LocationData.latitude=[NSString stringWithFormat:@"%.20lf", [currentLocation coordinate].latitude];
-        LocationData.longitude=[NSString stringWithFormat:@"%.20lf",[currentLocation coordinate].longitude];
-        LocationData.speed=[NSString stringWithFormat:@"%.20lf", currentLocation.speed];
-        LocationData.altitude=[NSString stringWithFormat:@"%.20lf", currentLocation.altitude];
+        
+        Location *LocationData;
+        
+        @try {
+            LocationData= [[Location alloc] init];
+            
+            LocationData.name=@"Test";
+            LocationData.longitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].longitude ];
+            LocationData.latitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].latitude ];
+            LocationData.speed=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.speed ];
+            LocationData.altitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.altitude ];
+            
+            NSLog(@"Updated");
+            //NSLog(@"latitude %@",LocationData.latitude);
+            
+            [dataModelInsert insertData:LocationData];
+
+        }
+        @catch ( NSException *e ) {
+            NSLog(@"error message %@",e);
+        }
         
         
-        dataInsertModel *dataModel=[[dataInsertModel alloc] init];
-        dataModel.insertData(LocationData.name,LocationData.latitude,LocationData.longitude,LocationData.speed,LocationData.altitude);
         
         
         [self.locationManager stopUpdatingLocation];
-        timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
+        timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
 
     }
 }

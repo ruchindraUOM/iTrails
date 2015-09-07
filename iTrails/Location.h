@@ -10,10 +10,10 @@
 
 @interface Location : NSObject
 
-@property (nonatomic, strong) NSString *latitude;
-@property (nonatomic, strong) NSString *longitude;
-@property (nonatomic, strong) NSString *altitude;
-@property (nonatomic, strong) NSString *speed;
+@property (nonatomic, strong) NSDecimalNumber *latitude;
+@property (nonatomic, strong) NSDecimalNumber *longitude;
+@property (nonatomic, strong) NSDecimalNumber *altitude;
+@property (nonatomic, strong) NSDecimalNumber *speed;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *address;
 
