@@ -7,8 +7,16 @@
 //
 
 #import "SummeryViewController.h"
+#import "Location.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface SummeryViewController ()
+
+@interface SummeryViewController (){
+    HomeModel *_homeModel;
+    NSArray *_feedItems;
+    Location *_selectedLocation;
+}
+
 
 @end
 
@@ -20,6 +28,19 @@ NSString *mail=@"roxz";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // Create array object and assign it to _feedItems variable
+    NSLog(@"Counting");
+    _feedItems = [[NSArray alloc] init];
+    
+    // Create new HomeModel object and assign it to _homeModel variable
+    _homeModel = [[HomeModel alloc] init];
+    
+    // Set this view controller object as the delegate for the home model object
+    _homeModel.delegate = self;
+    
+    // Call the download items method of the home model object
+    [_homeModel downloadItems];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,45 +58,38 @@ NSString *mail=@"roxz";
 }
 */
 
-- (IBAction)Save:(id)sender {
-    NSLog(@"Button clicked");
+-(void)itemsDownloaded:(NSArray *)items
+{
+    // This delegate method will get called when the items are finished downloading
     
+    // Set the downloaded items to the array
+    _feedItems = items;
     
-    
-    
-    
-    
-    
-    NSString *noteDataString = [NSString stringWithFormat:@"Name=%@&Mail=%@", name, mail];
-    //NSString *noteDataString = [NSString stringWithFormat:@"Name='res'&Mail='hfh'"];
-    
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-    
-    NSURL * url = [NSURL URLWithString:@"http://localhost:8888/Iphone/ServiceInsert.php"];
-    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSLog(@"%@",[noteDataString dataUsingEncoding:NSUTF8StringEncoding]);
-    
-    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
-        NSDictionary *json = [NSJSONSerialization
-                              JSONObjectWithData:dataRaw
-                              options:kNilOptions error:&error];
-        NSString *status = json[@"status"];
-        
-        if([status isEqual:@"1"]){
-            //Success
-            NSLog(@"Success %@",status);
-            
-        } else {
-            //Error
-            NSLog(@"Error %@",status);
-            
-        }
-    }];
-    
-    [dataTask resume];
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                      id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
+                 
+                 
+                 for (int i = 0; i < _feedItems.count; i++)
+                 {
+                     NSLog(@"%@",[[_feedItems objectAtIndex: i] name]);
+                     NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
+                     
+                     if([[result objectForKey:@"name"] isEqualToString:[[_feedItems objectAtIndex: i] name]] ){
+                         
+                         
+                     }
+                     
+                 }
+                 
+                 
+             }
+         }];
+    }
+
 }
+
 @end

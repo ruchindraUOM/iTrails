@@ -9,6 +9,7 @@
 #import "homeMapViewController.h"
 #import "Location.h"
 #import "dataInsertModel.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface homeMapViewController ()
 
@@ -38,7 +39,7 @@ MKPointAnnotation *pin;
         [self.locationManager requestWhenInUseAuthorization];
     }
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
     
 }
@@ -87,68 +88,73 @@ MKPointAnnotation *pin;
         
         pin.coordinate = poiCoodinates;
         [self.mapView addAnnotation:pin];
-        
-        
+    
         Location *LocationData;
         
-        {
+    
             LocationData= [[Location alloc] init];
             
-            LocationData.name=@"case4";
-            LocationData.longitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].longitude ];
-            LocationData.latitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].latitude ];
-            LocationData.speed=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.speed ];
-            LocationData.altitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.altitude ];
-            
-            NSLog(@"Updated");
-            NSLog(@"latitude %@",LocationData.latitude);
-            
-            //[dataModelInsert insertData:LocationData];
-            
-            NSLog(@"Inserting data");
-            NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",LocationData.name,LocationData.latitude,LocationData.longitude,LocationData.speed,LocationData.altitude];
-            //NSString *noteDataString = [NSString stringWithFormat:@"Name='res'&Mail='hfh'"];
-            
-            NSLog(@"%@",noteDataString);
-            NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-            NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-            
-            NSURL * url = [NSURL URLWithString:@"http://localhost:8888/Iphone/insert.php"];
-            NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-            [urlRequest setHTTPMethod:@"POST"];
-            [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
-            
-            //NSLog(@"%@",[noteDataString dataUsingEncoding:NSUTF8StringEncoding]);
-            
-            NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
-                NSDictionary *json = [NSJSONSerialization
-                                      JSONObjectWithData:dataRaw
-                                      options:kNilOptions error:&error];
-                NSString *status = json[@"status"];
-                
-                if([status isEqual:@"1"]){
-                    //Success
-                    NSLog(@"Success %@",status);
-                    
-                } else {
-                    //Error
-                    NSLog(@"Error %@",status);
-                    
-                }
-            }];
-            
-            [dataTask resume];
+            if ([FBSDKAccessToken currentAccessToken]) {
+                [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+                 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                              id result, NSError *error) {
+                     if (!error) {
+                         NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
+                         LocationData.name=[result objectForKey:@"name"];
+                         NSLog(@"name of the user %@",LocationData.name);
+                         
+                         
+                         LocationData.longitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].longitude ];
+                         LocationData.latitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].latitude ];
+                         LocationData.speed=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.speed ];
+                         LocationData.altitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.altitude ];
+                         
+                         
+                         //[dataModelInsert insertData:LocationData];
+                         
+                         NSLog(@"Inserting data");
+                         NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",LocationData.name,LocationData.latitude,LocationData.longitude,LocationData.speed,LocationData.altitude];
+                         
+                         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+                         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+                         
+                         NSURL * url = [NSURL URLWithString:@"http://localhost:8888/Iphone/insert.php"];
+                         NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+                         [urlRequest setHTTPMethod:@"POST"];
+                         [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
+                         
+                         //NSLog(@"%@",[noteDataString dataUsingEncoding:NSUTF8StringEncoding]);
+                         
+                         NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
+                             NSDictionary *json = [NSJSONSerialization
+                                                   JSONObjectWithData:dataRaw
+                                                   options:kNilOptions error:&error];
+                             NSString *status = json[@"status"];
+                             
+                             if([status isEqual:@"1"]){
+                                 //Success
+                                 NSLog(@"Success %@",status);
+                                 
+                             } else {
+                                 //Error
+                                 NSLog(@"Error %@",status);
+                                 
+                             }
+                         }];
+                         
+                         [dataTask resume];
+                     }
+                 }];
+            }
 
-            
+        
+        
+
         }
-        
-        
+    
         [self.locationManager stopUpdatingLocation];
         timer = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
-
-    }
 }
-
 
 
 // Location Manager Delegate Methods

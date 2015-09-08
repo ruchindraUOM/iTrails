@@ -8,6 +8,7 @@
 
 #import "HistoryViewController.h"
 #import "Location.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface HistoryViewController (){
     HomeModel *_homeModel;
@@ -18,13 +19,12 @@
 
 @implementation HistoryViewController
 
-MKPointAnnotation *pin;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    pin = [[MKPointAnnotation alloc] init];
-    // Create array object and assign it to _feedItems variable
+        // Create array object and assign it to _feedItems variable
     NSLog(@"Counting");
     _feedItems = [[NSArray alloc] init];
     
@@ -51,25 +51,49 @@ MKPointAnnotation *pin;
     // Set the downloaded items to the array
     _feedItems = items;
     
-    for (int i = 0; i < _feedItems.count; i++)
-    {
-        NSLog(@"%@",[[_feedItems objectAtIndex: i] longitude]);
-        NSLog(@"%@",[[_feedItems objectAtIndex: i] latitude]);
-        
-        CLLocationCoordinate2D poiCoodinates;
-        poiCoodinates.latitude=[[_feedItems objectAtIndex: i] latitude].doubleValue;
-        poiCoodinates.longitude=[[_feedItems objectAtIndex: i] longitude].doubleValue;
-        // Zoom to region
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(poiCoodinates,10,10);
-        
-        [self.mapView setRegion:viewRegion animated:YES];
-        
-        // Plot pin
-        
-        pin.coordinate = poiCoodinates;
-        [self.mapView addAnnotation:pin];
-        
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                      id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
+                 
+                 
+                 
+                 for (int i = 0; i < _feedItems.count; i++)
+                 {
+                     NSLog(@"%@",[[_feedItems objectAtIndex: i] name]);
+                     NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
+                     
+                     if([[result objectForKey:@"name"] isEqualToString:[[_feedItems objectAtIndex: i] name]] ){
+                        
+                     NSLog(@"Eqal");
+                     MKPointAnnotation *pin;
+                     pin = [[MKPointAnnotation alloc] init];
+
+                     CLLocationCoordinate2D poiCoodinates;
+                     poiCoodinates.latitude=[[_feedItems objectAtIndex: i] latitude].doubleValue;
+                     poiCoodinates.longitude=[[_feedItems objectAtIndex: i] longitude].doubleValue;
+                     // Zoom to region
+                     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(poiCoodinates,0,0);
+                     
+                     [self.mapView setRegion:viewRegion animated:YES];
+                     
+                     // Plot pin
+                     
+                     pin.coordinate = poiCoodinates;
+                     [self.mapView addAnnotation:pin];
+                     }
+                     
+                 }
+                 
+                 
+             }
+         }];
     }
+
+    
+    
     
 }
 

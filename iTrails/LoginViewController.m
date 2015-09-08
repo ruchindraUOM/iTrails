@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface LoginViewController ()
 
@@ -18,8 +19,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    
     loginButton.center = self.view.center;
-    [self.view addSubview:loginButton];
+        [self.view addSubview:loginButton];
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                      id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", [result objectForKey:@"id"] );
+             }
+         }];
+    }
+    
 }
 
 
