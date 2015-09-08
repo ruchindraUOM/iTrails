@@ -1,33 +1,35 @@
 //
-//  HomeModel.m
-//  myFirstIApp
+//  searchModel.m
+//  iTrails
 //
-//  Created by Ruchindra Vithanage on 7/25/15.
+//  Created by Ruchindra Vithanage on 9/7/15.
 //  Copyright (c) 2015 Ruchindra Vithanage. All rights reserved.
 //
 
-#import "HomeModel.h"
+#import "searchModel.h"
 #import "Location.h"
 
-@interface HomeModel()
+@interface searchModel()
 {
     NSMutableData *_downloadedData;
 }
 @end
 
-@implementation HomeModel
+@implementation searchModel
+
 
 - (void)downloadItems
 {
     
     // Download the json file
-    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://localhost:8888/Iphone/Service.php"];
+    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://localhost:8888/Iphone/locationSearch.php"];
     
     // Create the request
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:jsonFileUrl];
     
     // Create the NSURLConnection
     [NSURLConnection connectionWithRequest:urlRequest delegate:self];
+
 }
 
 #pragma mark NSURLConnectionDataProtocol Methods
@@ -60,16 +62,13 @@
         
         // Create a new location object and set its props to JsonElement properties
         Location *newLocation = [[Location alloc] init];
-        newLocation.name = jsonElement[@"userID"];
+        newLocation.name = jsonElement[@"Name"];
         newLocation.latitude=jsonElement[@"latitude"];
         newLocation.longitude=jsonElement[@"longitude"];
-        newLocation.speed=jsonElement[@"speed"];
         
-        NSLog(@"%@",jsonElement[@"userID"]);
+        NSLog(@"%@",jsonElement[@"Name"]);
         NSLog(@"%@",jsonElement[@"latitude"]);
         NSLog(@"%@",jsonElement[@"longitude"]);
-        NSLog(@"%@",jsonElement[@"speed"]);
-        NSLog(@"%@",jsonElement[@"altitude"]);
         
         if (self.delegate)
         {

@@ -91,30 +91,60 @@ MKPointAnnotation *pin;
         
         Location *LocationData;
         
-        @try {
+        {
             LocationData= [[Location alloc] init];
             
-            LocationData.name=@"Test";
+            LocationData.name=@"case4";
             LocationData.longitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].longitude ];
             LocationData.latitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].latitude ];
             LocationData.speed=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.speed ];
             LocationData.altitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.altitude ];
             
             NSLog(@"Updated");
-            //NSLog(@"latitude %@",LocationData.latitude);
+            NSLog(@"latitude %@",LocationData.latitude);
             
-            [dataModelInsert insertData:LocationData];
+            //[dataModelInsert insertData:LocationData];
+            
+            NSLog(@"Inserting data");
+            NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",LocationData.name,LocationData.latitude,LocationData.longitude,LocationData.speed,LocationData.altitude];
+            //NSString *noteDataString = [NSString stringWithFormat:@"Name='res'&Mail='hfh'"];
+            
+            NSLog(@"%@",noteDataString);
+            NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+            NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+            
+            NSURL * url = [NSURL URLWithString:@"http://localhost:8888/Iphone/insert.php"];
+            NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+            [urlRequest setHTTPMethod:@"POST"];
+            [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
+            
+            //NSLog(@"%@",[noteDataString dataUsingEncoding:NSUTF8StringEncoding]);
+            
+            NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
+                NSDictionary *json = [NSJSONSerialization
+                                      JSONObjectWithData:dataRaw
+                                      options:kNilOptions error:&error];
+                NSString *status = json[@"status"];
+                
+                if([status isEqual:@"1"]){
+                    //Success
+                    NSLog(@"Success %@",status);
+                    
+                } else {
+                    //Error
+                    NSLog(@"Error %@",status);
+                    
+                }
+            }];
+            
+            [dataTask resume];
 
+            
         }
-        @catch ( NSException *e ) {
-            NSLog(@"error message %@",e);
-        }
-        
-        
         
         
         [self.locationManager stopUpdatingLocation];
-        timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
+        timer = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
 
     }
 }

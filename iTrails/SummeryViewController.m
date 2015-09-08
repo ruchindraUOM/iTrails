@@ -40,6 +40,12 @@ NSString *mail=@"roxz";
 - (IBAction)Save:(id)sender {
     NSLog(@"Button clicked");
     
+    
+    
+    
+    
+    
+    
     NSString *noteDataString = [NSString stringWithFormat:@"Name=%@&Mail=%@", name, mail];
     //NSString *noteDataString = [NSString stringWithFormat:@"Name='res'&Mail='hfh'"];
     
