@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <UIKit/UIKit.h>
 
 @interface LoginViewController ()
 
@@ -29,6 +30,7 @@
                                       id result, NSError *error) {
              if (!error) {
                  NSLog(@"fetched user:%@", [result objectForKey:@"id"] );
+                 
              }
          }];
     }

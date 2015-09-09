@@ -103,17 +103,23 @@ MKPointAnnotation *pin;
                          LocationData.name=[result objectForKey:@"name"];
                          NSLog(@"name of the user %@",LocationData.name);
                          
+                         self.userNameLabel.text=[result objectForKey:@"name"];
                          
                          LocationData.longitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].longitude ];
                          LocationData.latitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:[currentLocation coordinate].latitude ];
-                         LocationData.speed=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.speed ];
+                         LocationData.currentSpeed=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.speed ];
                          LocationData.altitude=(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:currentLocation.altitude ];
                          
+                         self.speedLabel.text=[NSString stringWithFormat:@"%.2f ms", currentLocation.speed];
+                         ;
+                         self.altitudeLabel.text=[NSString stringWithFormat:@"%.2f m",currentLocation.altitude];
+                         ;
+
                          
                          //[dataModelInsert insertData:LocationData];
                          
                          NSLog(@"Inserting data");
-                         NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",LocationData.name,LocationData.latitude,LocationData.longitude,LocationData.speed,LocationData.altitude];
+                         NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",LocationData.name,LocationData.latitude,LocationData.longitude,LocationData.currentSpeed,LocationData.altitude];
                          
                          NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
                          NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];

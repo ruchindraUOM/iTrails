@@ -63,13 +63,8 @@
         newLocation.name = jsonElement[@"userID"];
         newLocation.latitude=jsonElement[@"latitude"];
         newLocation.longitude=jsonElement[@"longitude"];
-        newLocation.speed=jsonElement[@"speed"];
-        
-        NSLog(@"%@",jsonElement[@"userID"]);
-        NSLog(@"%@",jsonElement[@"latitude"]);
-        NSLog(@"%@",jsonElement[@"longitude"]);
-        NSLog(@"%@",jsonElement[@"speed"]);
-        NSLog(@"%@",jsonElement[@"altitude"]);
+        newLocation.currentSpeed=jsonElement[@"speed"];
+        newLocation.altitude=jsonElement[@"altitude"];
         
         if (self.delegate)
         {

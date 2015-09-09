@@ -14,7 +14,7 @@
 void insertData(Location *locationData){
 
     NSLog(@"Inserting data");
-    NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",locationData.name,locationData.latitude,locationData.longitude,locationData.speed,locationData.altitude];
+    NSString *noteDataString = [NSString stringWithFormat:@"ID=%@&lat=%@&long=%@&speed=%@&altitude=%@",locationData.name,locationData.latitude,locationData.longitude,locationData.currentSpeed,locationData.altitude];
     //NSString *noteDataString = [NSString stringWithFormat:@"Name='res'&Mail='hfh'"];
     
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

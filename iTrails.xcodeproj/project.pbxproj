@@ -14,6 +14,9 @@
 		982A13001B63E86500A58C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 982A12FF1B63E86500A58C54 /* Images.xcassets */; };
 		982A13031B63E86500A58C54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 982A13011B63E86500A58C54 /* LaunchScreen.xib */; };
 		982A130F1B63E86500A58C54 /* iTrailsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A130E1B63E86500A58C54 /* iTrailsTests.m */; };
+		98B7770F1B9FD2A600AF5088 /* 1441784160_businessman.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B7770E1B9FD2A600AF5088 /* 1441784160_businessman.png */; };
+		98B777121B9FD9BF00AF5088 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B777111B9FD9BF00AF5088 /* TabBarViewController.m */; };
+		98B777141B9FE58F00AF5088 /* maxTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B777131B9FE58F00AF5088 /* maxTestClass.m */; };
 		98C60DE11B9AC6B400F59C73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; };
 		98C60DE21B9AC6B400F59C73 /* CoreLocation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98C60DE91B9ACEB400F59C73 /* homeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DE81B9ACEB400F59C73 /* homeMapViewController.m */; };
@@ -75,6 +78,10 @@
 		982A13081B63E86500A58C54 /* iTrailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTrailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		982A130D1B63E86500A58C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		982A130E1B63E86500A58C54 /* iTrailsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTrailsTests.m; sourceTree = "<group>"; };
+		98B7770E1B9FD2A600AF5088 /* 1441784160_businessman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1441784160_businessman.png; path = ../../../Downloads/1441784160_businessman.png; sourceTree = "<group>"; };
+		98B777101B9FD9BF00AF5088 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		98B777111B9FD9BF00AF5088 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		98B777131B9FE58F00AF5088 /* maxTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = maxTestClass.m; sourceTree = "<group>"; };
 		98C60DDC1B98C51900F59C73 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		98C60DE71B9ACEB400F59C73 /* homeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeMapViewController.h; sourceTree = "<group>"; };
 		98C60DE81B9ACEB400F59C73 /* homeMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeMapViewController.m; sourceTree = "<group>"; };
@@ -137,6 +144,7 @@
 		980007C31B6D49F600D63E7D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98B7770E1B9FD2A600AF5088 /* 1441784160_businessman.png */,
 				98F76B5C1B9E624C00B6AC56 /* footsteps.png */,
 				98F76B5A1B9E620500B6AC56 /* FootSteps-Blue.jpg */,
 				98F76B581B9E581000B6AC56 /* facebook2.png */,
@@ -202,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				982A130E1B63E86500A58C54 /* iTrailsTests.m */,
+				98B777131B9FE58F00AF5088 /* maxTestClass.m */,
 				982A130C1B63E86500A58C54 /* Supporting Files */,
 			);
 			path = iTrailsTests;
@@ -230,6 +239,8 @@
 				98E5B1271B9DBA2C00D852F8 /* SearchTableViewController.m */,
 				98F76B551B9E50C600B6AC56 /* LoginViewController.h */,
 				98F76B561B9E50C600B6AC56 /* LoginViewController.m */,
+				98B777101B9FD9BF00AF5088 /* TabBarViewController.h */,
+				98B777111B9FD9BF00AF5088 /* TabBarViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -348,6 +359,7 @@
 				98F76B5B1B9E620500B6AC56 /* FootSteps-Blue.jpg in Resources */,
 				98F76B4C1B9E48C100B6AC56 /* 1441683308_Speed.png in Resources */,
 				98F76B4E1B9E499000B6AC56 /* 1441683532_5.png in Resources */,
+				98B7770F1B9FD2A600AF5088 /* 1441784160_businessman.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +379,7 @@
 			files = (
 				98C60DF71B9B68F800F59C73 /* HomeModel.m in Sources */,
 				98C60DF11B9B183400F59C73 /* AppDelegate.m in Sources */,
+				98B777121B9FD9BF00AF5088 /* TabBarViewController.m in Sources */,
 				98C60DFD1B9C2D7800F59C73 /* SummeryViewController.m in Sources */,
 				982A12F51B63E86500A58C54 /* main.m in Sources */,
 				98E5B11F1B9DABDE00D852F8 /* SearchViewController.m in Sources */,
@@ -386,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				982A130F1B63E86500A58C54 /* iTrailsTests.m in Sources */,
+				98B777141B9FE58F00AF5088 /* maxTestClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

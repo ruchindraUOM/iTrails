@@ -13,5 +13,8 @@
 @interface homeMapViewController : UIViewController
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic, retain) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *altitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @end

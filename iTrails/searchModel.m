@@ -66,9 +66,7 @@
         newLocation.latitude=jsonElement[@"latitude"];
         newLocation.longitude=jsonElement[@"longitude"];
         
-        NSLog(@"%@",jsonElement[@"Name"]);
-        NSLog(@"%@",jsonElement[@"latitude"]);
-        NSLog(@"%@",jsonElement[@"longitude"]);
+        
         
         if (self.delegate)
         {

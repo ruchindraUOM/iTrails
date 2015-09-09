@@ -56,18 +56,17 @@
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                       id result, NSError *error) {
              if (!error) {
-                 NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
+                 //NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
                  
                  
                  
                  for (int i = 0; i < _feedItems.count; i++)
                  {
-                     NSLog(@"%@",[[_feedItems objectAtIndex: i] name]);
-                     NSLog(@"fetched user:%@", [result objectForKey:@"name"] );
+                    
                      
                      if([[result objectForKey:@"name"] isEqualToString:[[_feedItems objectAtIndex: i] name]] ){
                         
-                     NSLog(@"Eqal");
+                     
                      MKPointAnnotation *pin;
                      pin = [[MKPointAnnotation alloc] init];
 
