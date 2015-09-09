@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeModel.h"
+#import "advancedSearchModel.h"
 
-@interface SummeryViewController : UIViewController <HomeModelProtocol>
+@interface SummeryViewController : UIViewController <SearchModelProtocol>
 - (IBAction)Save:(id)sender;
 
 @end

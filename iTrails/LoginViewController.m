@@ -24,7 +24,7 @@
         [self.view addSubview:loginButton];
     
     if ([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id, name"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                       id result, NSError *error) {
              if (!error) {

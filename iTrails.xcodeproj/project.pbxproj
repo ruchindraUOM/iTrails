@@ -14,7 +14,6 @@
 		982A13001B63E86500A58C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 982A12FF1B63E86500A58C54 /* Images.xcassets */; };
 		982A13031B63E86500A58C54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 982A13011B63E86500A58C54 /* LaunchScreen.xib */; };
 		982A130F1B63E86500A58C54 /* iTrailsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A130E1B63E86500A58C54 /* iTrailsTests.m */; };
-		98C60DDD1B98C51900F59C73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; };
 		98C60DE11B9AC6B400F59C73 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; };
 		98C60DE21B9AC6B400F59C73 /* CoreLocation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98C60DDC1B98C51900F59C73 /* CoreLocation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98C60DE91B9ACEB400F59C73 /* homeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C60DE81B9ACEB400F59C73 /* homeMapViewController.m */; };
@@ -27,6 +26,7 @@
 		98E5B11F1B9DABDE00D852F8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E5B11E1B9DABDE00D852F8 /* SearchViewController.m */; };
 		98E5B1221B9DADE900D852F8 /* searchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E5B1211B9DADE900D852F8 /* searchModel.m */; };
 		98E5B1281B9DBA2C00D852F8 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E5B1271B9DBA2C00D852F8 /* SearchTableViewController.m */; };
+		98ECF8AF1B9F2C740009533D /* advancedSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ECF8AE1B9F2C740009533D /* advancedSearchModel.m */; };
 		98F76B4A1B9E0E9200B6AC56 /* run-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 98F76B491B9E0E9200B6AC56 /* run-512.png */; };
 		98F76B4C1B9E48C100B6AC56 /* 1441683308_Speed.png in Resources */ = {isa = PBXBuildFile; fileRef = 98F76B4B1B9E48C100B6AC56 /* 1441683308_Speed.png */; };
 		98F76B4E1B9E499000B6AC56 /* 1441683532_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 98F76B4D1B9E499000B6AC56 /* 1441683532_5.png */; };
@@ -96,6 +96,8 @@
 		98E5B1211B9DADE900D852F8 /* searchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchModel.m; sourceTree = "<group>"; };
 		98E5B1261B9DBA2C00D852F8 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		98E5B1271B9DBA2C00D852F8 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		98ECF8AD1B9F2C740009533D /* advancedSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = advancedSearchModel.h; sourceTree = "<group>"; };
+		98ECF8AE1B9F2C740009533D /* advancedSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = advancedSearchModel.m; sourceTree = "<group>"; };
 		98F76B491B9E0E9200B6AC56 /* run-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "run-512.png"; path = "../../../Downloads/run-512.png"; sourceTree = "<group>"; };
 		98F76B4B1B9E48C100B6AC56 /* 1441683308_Speed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1441683308_Speed.png; path = ../../../Downloads/1441683308_Speed.png; sourceTree = "<group>"; };
 		98F76B4D1B9E499000B6AC56 /* 1441683532_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1441683532_5.png; path = ../../../Downloads/1441683532_5.png; sourceTree = "<group>"; };
@@ -118,7 +120,6 @@
 				98F76B521B9E4F6600B6AC56 /* FBSDKCoreKit.framework in Frameworks */,
 				98F76B541B9E4F6600B6AC56 /* FBSDKShareKit.framework in Frameworks */,
 				98F76B531B9E4F6600B6AC56 /* FBSDKLoginKit.framework in Frameworks */,
-				98C60DDD1B98C51900F59C73 /* CoreLocation.framework in Frameworks */,
 				98011FF11B8B4D0B0097ED68 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +243,8 @@
 				98C60DF61B9B68F800F59C73 /* HomeModel.m */,
 				98C60DFE1B9C6C5500F59C73 /* dataInsertModel.h */,
 				98C60DFF1B9C6C5500F59C73 /* dataInsertModel.m */,
+				98ECF8AD1B9F2C740009533D /* advancedSearchModel.h */,
+				98ECF8AE1B9F2C740009533D /* advancedSearchModel.m */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -291,7 +294,7 @@
 		982A12E71B63E86400A58C54 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Ruchindra Vithanage";
 				TargetAttributes = {
 					982A12EE1B63E86400A58C54 = {
@@ -374,6 +377,7 @@
 				98C60DF41B9B5C5300F59C73 /* HistoryViewController.m in Sources */,
 				98E5B1221B9DADE900D852F8 /* searchModel.m in Sources */,
 				98E5B1281B9DBA2C00D852F8 /* SearchTableViewController.m in Sources */,
+				98ECF8AF1B9F2C740009533D /* advancedSearchModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -484,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

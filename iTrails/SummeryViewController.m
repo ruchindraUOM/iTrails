@@ -12,7 +12,7 @@
 
 
 @interface SummeryViewController (){
-    HomeModel *_homeModel;
+    advancedSearchModel *_homeModel;
     NSArray *_feedItems;
     Location *_selectedLocation;
 }
@@ -33,7 +33,7 @@ NSString *mail=@"roxz";
     _feedItems = [[NSArray alloc] init];
     
     // Create new HomeModel object and assign it to _homeModel variable
-    _homeModel = [[HomeModel alloc] init];
+    _homeModel = [[advancedSearchModel alloc] init];
     
     // Set this view controller object as the delegate for the home model object
     _homeModel.delegate = self;

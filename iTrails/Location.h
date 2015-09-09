@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSDecimalNumber *speed;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *time;
 
 @end

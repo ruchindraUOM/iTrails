@@ -20,15 +20,26 @@
 
 @implementation SearchViewController
 
-MKPointAnnotation *pin;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    pin = [[MKPointAnnotation alloc] init];
-    NSLog(@"Counting");
+        NSLog(@"Counting");
     NSLog(@"Slelected location %@",_selectedLocation.name);
+    
     _feedItems = [[NSArray alloc] init];
+    
+    
     
     // Create new HomeModel object and assign it to _homeModel variable
     _homeModel = [[HomeModel alloc] init];
@@ -38,6 +49,8 @@ MKPointAnnotation *pin;
     
     // Call the download items method of the home model object
     [_homeModel downloadItems];
+     
+    
 
 }
 
@@ -58,19 +71,28 @@ MKPointAnnotation *pin;
         NSLog(@"Finally %@",[[_feedItems objectAtIndex: i] longitude]);
         NSLog(@"Finally %@",[[_feedItems objectAtIndex: i] latitude]);
         
+        double latitudeDiff=(_selectedLocation.latitude).doubleValue-[[_feedItems objectAtIndex: i] latitude].doubleValue;
+        double longitudeDiff=(_selectedLocation.latitude).doubleValue-[[_feedItems objectAtIndex: i] longitude].doubleValue;
+
         
-        CLLocationCoordinate2D poiCoodinates;
-        poiCoodinates.latitude=[[_feedItems objectAtIndex: i] latitude].doubleValue;
-        poiCoodinates.longitude=[[_feedItems objectAtIndex: i] longitude].doubleValue;
-        // Zoom to region
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(poiCoodinates,0,0);
+        if(fabs(latitudeDiff)<0.05 || fabs(longitudeDiff)<0.05){
+            
+            MKPointAnnotation *pin;
+            pin = [[MKPointAnnotation alloc] init];
+            CLLocationCoordinate2D poiCoodinates;
+            poiCoodinates.latitude=[[_feedItems objectAtIndex: i] latitude].doubleValue;
+            poiCoodinates.longitude=[[_feedItems objectAtIndex: i] longitude].doubleValue;
+            // Zoom to region
+            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(poiCoodinates,0,0);
+            
+            [self.mapView setRegion:viewRegion animated:YES];
+            
+            // Plot pin
+            
+            pin.coordinate = poiCoodinates;
+            [self.mapView addAnnotation:pin];
+        }
         
-        [self.mapView setRegion:viewRegion animated:YES];
-        
-        // Plot pin
-        
-        pin.coordinate = poiCoodinates;
-        [self.mapView addAnnotation:pin];
         
     }
 
